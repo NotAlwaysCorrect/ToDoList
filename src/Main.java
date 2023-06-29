@@ -9,7 +9,7 @@ public class Main implements ActionListener {
 
     int count = 0;
     JLabel label;
-    JLabel taskListLabels;
+//    JLabel taskListLabels;
     JPanel panel;
     JFrame frame;
     JButton button;
@@ -21,11 +21,14 @@ public class Main implements ActionListener {
 
         frame = new JFrame();
         button = new JButton("Click me");
-        taskListLabels = new JLabel("");
+//        taskListLabels = new JLabel();
         addTaskButton = new JButton(new AbstractAction("Add Task") {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                taskListLabels.setText(taskListLabels.getText() + "\n " + addTaskField.getText()) ;
+                panel.add(new JLabel(addTaskField.getText()));
+                panel.add(new JButton("Delete"));
+
+                panel.validate();
 
             }
         });
@@ -43,9 +46,9 @@ public class Main implements ActionListener {
         panel.add(label);
 
 
-        panel.add(addTaskButton);
         panel.add(addTaskField);
-        panel.add(taskListLabels);
+        panel.add(addTaskButton);
+//        panel.add(taskListLabels);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
