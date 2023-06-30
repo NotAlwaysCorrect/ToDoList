@@ -56,7 +56,6 @@ public class Main implements ActionListener {
         panel.add(tempButton);
         panel.validate();
 
-        System.out.println("here?");
         tempButton.addActionListener(e1 -> {
             panel.remove(panel.getComponentZOrder(tempButton) - 1);
             panel.remove(tempButton);
